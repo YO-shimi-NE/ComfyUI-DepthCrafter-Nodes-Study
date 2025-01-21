@@ -132,6 +132,7 @@ class DownloadAndLoadDepthCrafterModel(DepthCrafterNode):
 
 
         depthcrafter_model = {
+            "unet": unet,
             "pipe": pipe,
             "device": device,
         }
@@ -163,6 +164,7 @@ class DepthCrafter(DepthCrafterNode):
     def process(self, depthcrafter_model, images, max_res, num_inference_steps, guidance_scale, window_size, overlap):
         device = depthcrafter_model['device']
         pipe = depthcrafter_model['pipe']
+        unet = depthcrafter_model['unet']
         
         B, H, W, C = images.shape
         
@@ -200,6 +202,12 @@ class DepthCrafter(DepthCrafterNode):
                 overlap=overlap,
                 track_time=False,
                 progress_callback=self.update_progress,
+            )
+            unet_result = unet(
+                images,
+                timestep="",
+                encoder_hidden_states=None,
+                added_time_ids=None,
             )
             
         res = result.frames[0]  # [B, H, W, C]
