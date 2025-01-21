@@ -16,7 +16,7 @@
       "CrossAttnDownBlock2D",
       "DownBlock2D"
     ],
-    "in_channels": 8,
+    "in_channels": 4,
     "layers_per_block": 2,
     "num_attention_heads": null,
     "out_channels": 4,
