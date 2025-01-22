@@ -281,6 +281,10 @@ class DepthCrafterPipeline(StableVideoDiffusionPipeline):
                     latent_model_input = torch.cat(
                         [latent_model_input, video_latents_current], dim=2
                     )
+                    print("##############################################################")
+                    print(latent_model_input.size())
+                    print(added_time_ids.size())
+                    print("##############################################################\n\n")
                     noise_pred = self.unet(
                         latent_model_input,
                         t,
