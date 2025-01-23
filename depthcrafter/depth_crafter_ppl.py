@@ -285,6 +285,7 @@ class DepthCrafterPipeline(StableVideoDiffusionPipeline):
                     )
                     print("##############################################################")
                     print(latent_model_input.size())
+                    print(video_embeddings_current.size())
                     print(added_time_ids.size())
                     print("##############################################################\n\n")
                     noise_pred = self.unet(
