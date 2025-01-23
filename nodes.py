@@ -4,6 +4,7 @@ import math
 import comfy.model_management as mm
 from comfy.utils import ProgressBar
 import folder_paths
+import numpy as np
 
 from .depthcrafter.unet import DiffusersUNetSpatioTemporalConditionModelDepthCrafter
 from .depthcrafter.depth_crafter_ppl import DepthCrafterPipeline
@@ -169,7 +170,7 @@ class DepthCrafter(DepthCrafterNode):
         print(f"images: {images.size()}")
 
         images = np.repeat(images, 2, axis=0)
-        
+
         print(f"images: {images.size()}")
 
         B, H, W, C = images.shape
