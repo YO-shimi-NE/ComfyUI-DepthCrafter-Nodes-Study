@@ -171,7 +171,7 @@ class DepthCrafter(DepthCrafterNode):
         images = images.permute(0, 3, 1, 2)  
 
         # Add a dimension for the batch size (2) using repeat
-        images = transformed_tensor.images(2, 1, 1, 1)  
+        images = images.images(2, 1, 1, 1)  
 
         print(f"images video_tensor: {images.shape}")
 
