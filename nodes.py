@@ -165,7 +165,14 @@ class DepthCrafter(DepthCrafterNode):
     def process(self, depthcrafter_model, images, max_res, num_inference_steps, guidance_scale, window_size, overlap):
         device = depthcrafter_model['device']
         pipe = depthcrafter_model['pipe']
+        print(f"Original: {images.size()}")
 
+        HEIGHT, WIDTH, CHANNELS = images.shape[2], images.shape[3], images.shape[1]
+        video_tensor = np.zeros((2, HEIGHT, WIDTH, CHANNELS))
+
+        video_tensor[:] = images[0].transpose(1, 2, 0)
+        
+        images = video_tensor
 
         print(f"images: {images.size()}")
 
