@@ -164,8 +164,14 @@ class DepthCrafter(DepthCrafterNode):
     def process(self, depthcrafter_model, images, max_res, num_inference_steps, guidance_scale, window_size, overlap):
         device = depthcrafter_model['device']
         pipe = depthcrafter_model['pipe']
-        unet = depthcrafter_model['unet']
+
+
+        print(f"images: {images.size()}")
+
+        images = np.repeat(images, 2, axis=0)
         
+        print(f"images: {images.size()}")
+
         B, H, W, C = images.shape
         
         # Round to nearest multiple of 64
