@@ -169,7 +169,7 @@ class DepthCrafter(DepthCrafterNode):
 
         # if images[0] == 1:
             # Rearranja as dimensões de (batch_size, channels, height, width) para (batch_size, height, width, channels)
-        images = images.permute(0, 2, 3, 1)  
+        images = images.permute(0, 2, 1, 3)  
 
         # Repete o tensor ao longo da dimensão do lote (batch size)
         images = images.repeat(125, 1, 1, 1)  
