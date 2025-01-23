@@ -167,14 +167,9 @@ class DepthCrafter(DepthCrafterNode):
         pipe = depthcrafter_model['pipe']
         print(f"Original: {images.size()}")
 
-        HEIGHT, WIDTH, CHANNELS = images.shape[2], images.shape[3], images.shape[1]
+        images = images.permute(0, 2, 3, 1)
 
-        video_tensor = np.zeros((2, HEIGHT, WIDTH, CHANNELS))
-        video_tensor[:] = np.transpose(images[0], (0, 2, 3, 1))
-        
-        images = video_tensor
-
-        print(f"images video_tensor: {video_tensor.shape}")
+        print(f"images video_tensor: {images.shape}")
 
         # images = np.repeat(images, 2, axis=0)
 
