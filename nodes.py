@@ -167,14 +167,14 @@ class DepthCrafter(DepthCrafterNode):
         pipe = depthcrafter_model['pipe']
         print(f"Original: {images.size()}")
 
-        if images[0] == 1:
+        # if images[0] == 1:
             # Rearranja as dimensões de (batch_size, channels, height, width) para (batch_size, height, width, channels)
-            images = images.permute(0, 2, 3, 1)  
+        images = images.permute(0, 2, 3, 1)  
 
-            # Repete o tensor ao longo da dimensão do lote (batch size)
-            images = images.repeat(125, 1, 1, 1)  
+        # Repete o tensor ao longo da dimensão do lote (batch size)
+        images = images.repeat(125, 1, 1, 1)  
 
-            print(f"images video_tensor: {images.shape}")
+        print(f"images video_tensor: {images.shape}")
 
         # # images = np.repeat(images, 2, axis=0)
 
