@@ -170,13 +170,13 @@ class DepthCrafter(DepthCrafterNode):
         HEIGHT, WIDTH, CHANNELS = images.shape[2], images.shape[3], images.shape[1]
 
         video_tensor = np.zeros((2, HEIGHT, WIDTH, CHANNELS))
-        video_tensor[:] = np.transpose(images[0], (1, 2, 0))
+        video_tensor[:] = np.transpose(images, (0, 2, 3, 1))
         
         images = video_tensor
 
         print(f"images: {video_tensor.shape}")
 
-        images = np.repeat(images, 2, axis=0)
+        # images = np.repeat(images, 2, axis=0)
 
         print(f"images: {images.shape}")
 
