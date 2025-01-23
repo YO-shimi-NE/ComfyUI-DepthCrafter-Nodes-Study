@@ -132,6 +132,8 @@ class DepthCrafterPipeline(StableVideoDiffusionPipeline):
         :param return_dict:
         :return:
         """
+        print(f"__call__ input video size: {video.size()}")
+
         # 0. Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor

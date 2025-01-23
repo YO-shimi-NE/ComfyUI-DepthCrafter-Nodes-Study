@@ -203,12 +203,6 @@ class DepthCrafter(DepthCrafterNode):
                 track_time=False,
                 progress_callback=self.update_progress,
             )
-            unet_result = unet(
-                images,
-                timestep="",
-                encoder_hidden_states=None,
-                added_time_ids=None,
-            )
             
         res = result.frames[0]  # [B, H, W, C]
         
