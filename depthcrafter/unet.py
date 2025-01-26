@@ -22,7 +22,10 @@ class DiffusersUNetSpatioTemporalConditionModelDepthCrafter(
         return_dict: bool = True,
     ) -> Union[UNetSpatioTemporalConditionOutput, Tuple]:
         print("unet forward start")
-        print(f"sample size: {sample.size()} timestep: {timestep.size()} encoder_hidden_states: {encoder_hidden_states.size()} added_time_ids: {added_time_ids.size()}")
+        print(f"sample size: {sample.size()} {sample}")
+        print(f"timestep: {timestep.size()}  {timestep}")
+        print(f"encoder_hidden_states: {encoder_hidden_states.size()}")
+        print(f"added_time_ids: {added_time_ids.size()} {added_time_ids}")
         print("unet forward end")
 
         # 1. time
