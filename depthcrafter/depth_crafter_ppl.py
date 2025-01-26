@@ -133,7 +133,7 @@ class DepthCrafterPipeline(StableVideoDiffusionPipeline):
         :return:
         """
         print(f"__call__ input video size: {video.size()}")
-        self.unet.to_json_string()
+        print(self.unet.to_json_string())
         # 0. Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor
